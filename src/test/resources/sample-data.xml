@@ -64,19 +64,40 @@
         </row>
         <row>
             <value description="id">-3</value>
-            <value description="username">two_roles_user</value>
+            <value description="username">coordinadora</value>
             <value description="password">$2a$10$bH/ssqW8OhkTlIso9/yakubYODUOmh.6m5HEJvcBq3t3VdBh7ebqO</value>
-            <value description="first_name">Two Roles</value>
-            <value description="last_name">User</value>
+            <value description="first_name">Coordinadora</value>
+            <value description="last_name">Técnicos</value>
             <value description="address"></value>
-            <value description="city">Denver</value>
-            <value description="country">US</value>
-            <value description="email">two_roles_user@appfuse.org</value>
+            <value description="city">CABA</value>
+            <value description="country">Argentina</value>
+            <value description="email">coordinadoratecnico@tng24.com</value>
             <value description="phone_number"></value>
-            <value description="postal_code">80210</value>
-            <value description="province">CO</value>
-            <value description="website">http://raibledesigns.com</value>
-            <value description="password_hint"><![CDATA[Not a female kitty.]]></value>
+            <value description="postal_code">1000</value>
+            <value description="province">CABA</value>
+            <value description="website"></value>
+            <value description="password_hint"><![CDATA[user]]></value>
+            <value description="version">1</value>
+            <value description="account_enabled">1</value>
+            <value description="account_expired">0</value>
+            <value description="account_locked">0</value>
+            <value description="credentials_expired">0</value>
+        </row>
+        <row>
+            <value description="id">-4</value>
+            <value description="username">tecnico</value>
+            <value description="password">$2a$10$bH/ssqW8OhkTlIso9/yakubYODUOmh.6m5HEJvcBq3t3VdBh7ebqO</value>
+            <value description="first_name">Técnico</value>
+            <value description="last_name">Técnico</value>
+            <value description="address"></value>
+            <value description="city">CABA</value>
+            <value description="country">Argentina</value>
+            <value description="email">tecnico@tng24.com</value>
+            <value description="phone_number"></value>
+            <value description="postal_code">1000</value>
+            <value description="province">CABA</value>
+            <value description="website"></value>
+            <value description="password_hint"><![CDATA[user]]></value>
             <value description="version">1</value>
             <value description="account_enabled">1</value>
             <value description="account_expired">0</value>
@@ -98,6 +119,16 @@
             <value description="name">ROLE_USER</value>
             <value description="description"><![CDATA[Default role for all Users]]></value>
         </row>
+         <row>
+            <value description="id">-3</value>
+            <value description="name">ROLE_CT</value>
+            <value description="description"><![CDATA[Rol para Coordinadora]]></value>
+        </row>
+        <row>
+            <value description="id">-4</value>
+            <value description="name">ROLE_TEC</value>
+            <value description="description"><![CDATA[Rol para Técnico]]></value>
+        </row>
     </table>
     <table name="user_role">
         <column>user_id</column>
@@ -116,7 +147,11 @@
         </row>
         <row>
             <value description="user_id">-3</value>
-            <value description="role_id">-2</value>
+            <value description="role_id">-3</value>
+        </row>
+         <row>
+            <value description="user_id">-4</value>
+            <value description="role_id">-3</value>
         </row>
     </table>
 </dataset>
