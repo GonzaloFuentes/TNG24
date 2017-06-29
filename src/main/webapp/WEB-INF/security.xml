@@ -27,6 +27,8 @@
             <user-service>
                 <user name="user" password="12dea96fec20593566ab75692c9949596833adc9" authorities="ROLE_USER"/>
                 <user name="admin" password="d033e22ae348aeb5660fc2140aec35850c4da997" authorities="ROLE_ADMIN"/>
+                <user name="tecnico" password="047e19bf658ccca0dfe3617c1fad3bdce9b4fdec" authorities="ROLE_TEC"/>
+                <user name="coordinadora" password="86951272233527c5703f7a59a4ea2e35b4b9fa73" authorities="ROLE_CT"/>
             </user-service>
         </authentication-provider>
     </authentication-manager>
