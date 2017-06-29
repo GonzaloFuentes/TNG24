@@ -42,6 +42,10 @@
         <to>/styles/$1</to>
     </rule>
     <rule>
+        <from>/assets/**</from>
+        <to>/assets/$1</to>
+    </rule>
+    <rule>
         <from>/crossdomain.xml</from>
         <to>/crossdomain.xml</to>
     </rule>
