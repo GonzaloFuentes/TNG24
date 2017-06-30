@@ -26,7 +26,7 @@
 <body<decorator:getProperty property="body.id" writeEntireProperty="true"/>
 	<decorator:getProperty property="body.class" writeEntireProperty="true"/>>
 <div id="wrapper">
-	 <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+	 <nav class="navbar navbar-default navbar-cls-top  navbar-fixed-top" role="navigation" style="margin-bottom: 0">
 	      <div class="navbar-header">
 	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
 	              <span class="sr-only">Toggle navigation</span>
@@ -34,15 +34,19 @@
 	              <span class="icon-bar"></span>
 	              <span class="icon-bar"></span>
 	          </button>
-	           <security:authorize ifAnyGranted="ROLE_USER,ROLE_ADMIN">
-	          
+	           <a class="navbar-brand" href="#">TNG24</a> 
+	           <security:authorize ifAnyGranted="ROLE_TEC">
+	          	<a class="navbar-brand" href="#">Técnico</a> 
 	           </security:authorize>
-	          <a class="navbar-brand" href="#">Técnico</a> 
+           		 <security:authorize ifAnyGranted="ROLE_CT">
+	          	<a class="navbar-brand" href="#">Coordinadora</a> 
+	           </security:authorize>
+	          
 	      </div>
 	  <div style="color: white;	padding: 15px 50px 5px 50px;float: right;font-size: 16px;">
 	   26 de Mayo de 2017
 	    &nbsp; 
-	    <security:authorize ifAnyGranted="ROLE_TEC">
+	    <security:authorize ifAnyGranted="ROLE_TEC,ROLE_CT">
             <!--  <li class="logout"><a id="logout" href="${ctx}/logout">Logout</a>  </li>--> 
              	<a  href="${ctx}/logout" class="btn btn-danger square-btn-adjust">Logout</a>
          </security:authorize>
@@ -52,52 +56,50 @@
          <div class="sidebar-collapse">
            <ul class="nav" id="main-menu">
 	           <li class="text-center"><img src="assets/img/find_user.png" class="user-image img-responsive"/></li>
+	            <security:authorize ifAnyGranted="ROLE_TEC, ROLE_CT">
+	             <li><a href="clientes"><i class="fa fa-desktop fa-3x"></i> Clientes</a></li>
+	           </security:authorize>
    	           <security:authorize ifAnyGranted="ROLE_TEC">
-		           <li><a href="hoja_de_ruta.html"> <i class="fa fa-dashboard fa-3x"></i> Hoja de ruta</a></li>
+		           <li><a href="hojaderuta"> <i class="fa fa-dashboard fa-3x"></i> Hoja de ruta</a></li>
+	           </security:authorize>
+	            <security:authorize ifAnyGranted="ROLE_CT">
+	           	  <li><a href="agenda"> <i class="fa fa-dashboard fa-3x"></i>Agenda</a></li>
+	           </security:authorize>
+	            <security:authorize ifAnyGranted="ROLE_TEC, ROLE_CT">
+		           <li><a href="presupuestos"><i class="fa fa-qrcode fa-3x"></i> Presupuestos</a></li>
+	           </security:authorize>
+	           <security:authorize ifAnyGranted="ROLE_CT">
+                   <li><a href="facturas"><i class="fa fa-qrcode fa-3x"></i>Facturas</a></li>
+	           </security:authorize>
+	           <security:authorize ifAnyGranted="ROLE_CT">
+        			<li><a  href="desempeño"><i class="fa fa-bar-chart-o fa-3x"></i>Desempeño Técnicos</a></li>
+	           </security:authorize>
+	           <security:authorize ifAnyGranted="ROLE_CT">
+	           	<li><a  href="usuarios"><i class="fa fa-desktop fa-3x"></i>Usuarios</a></li>
+	           </security:authorize>
+	           <security:authorize ifAnyGranted="ROLE_CT">
+	           <li><a  href="encuesta"><i class="fa fa-edit fa-3x"></i>Encuestas</a></li>
+	           </security:authorize>
+	           <security:authorize ifAnyGranted="ROLE_TEC, ROLE_CT">
+		           <li><a href="facturas"><i class="fa fa-bar-chart-o fa-3x"></i> Facturas</a></li> 
 	           </security:authorize>
 	            <security:authorize ifAnyGranted="ROLE_TEC">
-	             <li><a href="abm_clientes.html"><i class="fa fa-desktop fa-3x"></i> Clientes</a></li>
-	           </security:authorize>
-	            <security:authorize ifAnyGranted="ROLE_TEC">
-		           <li><a href="tecnico_presupuestos.html"><i class="fa fa-qrcode fa-3x"></i> Presupuestos</a></li>
-	           </security:authorize>
-	            <security:authorize ifAnyGranted="ROLE_TEC">
-		           <li><a href="abm_facturas.html"><i class="fa fa-bar-chart-o fa-3x"></i> Facturas</a></li> 
-	           </security:authorize>
-	            <security:authorize ifAnyGranted="ROLE_TEC">
-		           <li><a href="tecnico_stock.html"><i class="fa fa-table fa-3x"></i>Stock</a></li>
+		           <li><a href="stock"><i class="fa fa-table fa-3x"></i>Stock</a></li>
 	           </security:authorize>
             </ul>
           </div>
-          
      </nav> 
-     
      <div id="page-wrapper">
             <div id="page-inner">
              	<decorator:body/>
             </div>
       </div>
-            
 </div>
 
 
    
-    <!-- <div class="container">
-        <div class="row">
-            <%@ include file="/messages.jsp"%>
-            <decorator:body/>
-        </div>
-    </div>
+    
 
-    <div id="footer" class="container">
-        <p>
-          footer
-        </p>
-    </div>-->
-
-<!--<script src="${ctx}/assets/js/jquery.metisMenu.js"></script>
-<script src="${ctx}/assets/js/custom.js"></script>
--->
 
 <script type="text/javascript">
             $('a[href="${pageContext.request.requestURI}"]').parent().addClass('active');
