@@ -3,7 +3,7 @@
 
 Instalación
 
-JDK 8 (http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-windows-x64.exe)
+ - JDK 8 (http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-windows-x64.exe)
  	1- Descargar el jdk 8 e instalarlo. Copiarse el path del __JDK__, no JRE.
  	2- Crear variable de entorno __JAVA_HOME__. Agregala a la variable de entorno PATH 
  	   de la siguiente manera: _%JAVA_HOME%'\bin
@@ -32,28 +32,27 @@ GIT (nos paramos en el directorio que tiene el archivo POM.xml)
 Vamos a trabajar todos sobre master. 
 ojo al commitear, ver que archivos se modificaron y que cosas se modificaron.
 
-1 -Clonar proyecto en el directorio que sea de su preferencia con el siguiente comando:
- > git clone https://github.com/GonzaloFuentes/TNG24.git
+1 - Clonar proyecto en el directorio que sea de su preferencia con el siguiente comando:
+ >git clone https://github.com/GonzaloFuentes/TNG24.git
  
-2 - Mirar las modificaciones de los archivos. Se sale con :q, se guarda con :wq , ENTER ARRIBA Y ABAJO navegacion.
-	> git diff <nombre de archivo>
+2 - Mirar las modificaciones de los archivos. Se sale con :q, se guarda con :wq , ENTER ARRIBA Y ABAJO navegación:
+ >git diff <nombre de archivo>
 
-3 - Agregar un archivo
-	>git add <archivo>
+3 - Agregar un archivo:
+ >git add <archivo>
 
-4 - Commitear archivos agregados
-	>git commit -m "<Mensaje significativo de las cosas que se cambiaron EJ: Agrego clasesde dominio y controller OrquestameLosRequestViejaController.java>"
+4 - Commitear archivos agregados:
+ >git commit -m "<Mensaje significativo de las cosas que se cambiaron EJ: Agrego clasesde dominio y controller OrquestameLosRequestViejaController.java>"
 
 5- Este paso es importante, aca es donde salta la ficha si hay un problema.
    Se hace para bajar los cambios del otro, hacer el merge de los archivos.
-   Si hay errores en el merge, arreglarlos manualmente.
+   Si hay errores en el merge, arreglarlos manualmente:
+ >git pull origin master
    
-   >git pull origin master
+6 - Si todo te salio bien, sos un campeon, pero este paso es la hora de la verdad.Si todo no te salio bien, no podes pushear.:
+ >git push origin master
    
-6 - Si todo te salio bien, sos un campeon, pero este paso es la hora de la verdad.
-   >git push origin master
-   
- 	Si todo no te salio bien, no podes pushear.
+ 	
  	
 SI TIENEN DUDAS LLAMEN O ESCRIBAN.
 
