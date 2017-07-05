@@ -8,5 +8,8 @@
     <session-factory>
         <mapping class="com.uade.seminario.model.User"/>
         <mapping class="com.uade.seminario.model.Role"/>
+        <mapping class="com.uade.seminario.model.core.Ente"/>
+        <mapping class="com.uade.seminario.model.core.Cliente"/>
+        <mapping class="com.uade.seminario.model.core.TipoDocumento"/>
     </session-factory>
 </hibernate-configuration>

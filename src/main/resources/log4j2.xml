@@ -7,6 +7,7 @@
 	</Appenders>
 
 	<Loggers>
+		<Logger name="com.uade.seminario.*" level="all" />
 		<Logger name="net.sf.ehcache" level="error"/>
 		<Logger name="org.apache" level="warn"/>
 		<Logger name="org.hibernate" level="warn"/>
