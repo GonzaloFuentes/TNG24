@@ -1,5 +1,14 @@
 package com.uade.seminario.model.core;
-public class RollEmpleado {
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity  
+@Table(name="ct_rolempleado")
+public class RolEmpleado {
+	@Id
+	private int id;
 	private String codRollEmpleado;
 	private String descRollEmpleado;
 	private char estado;
@@ -81,7 +90,7 @@ public class RollEmpleado {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		RollEmpleado other = (RollEmpleado) obj;
+		RolEmpleado other = (RolEmpleado) obj;
 		if (codRollEmpleado == null) {
 			if (other.codRollEmpleado != null)
 				return false;

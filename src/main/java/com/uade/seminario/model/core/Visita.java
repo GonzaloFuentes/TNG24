@@ -7,7 +7,6 @@ public class Visita {
 	private Factura factura;
 	private Presupuesto presupuesto;
 	private Cliente cliente;
-	private Domicilio domicilio;
 	private Date inicioProgramado;
 	private Date finProgramado;
 	private Date inicioReal;
@@ -16,7 +15,7 @@ public class Visita {
 	private String motivo;
 	private Empleado tecnico;
 	
-	public boolean cumplo(int id, Factura fac, Presupuesto pres, Cliente cli, Domicilio dom, Date iniProg, Date finProg, Date iniReal, Date finReal, char e) {
+	public boolean cumplo(int id, Factura fac, Presupuesto pres, Cliente cli, Date iniProg, Date finProg, Date iniReal, Date finReal, char e) {
 		return false;
 	
 	}
@@ -77,14 +76,6 @@ public class Visita {
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
-	}
-
-	public Domicilio getDomicilio() {
-		return domicilio;
-	}
-
-	public void setDomicilio(Domicilio domicilio) {
-		this.domicilio = domicilio;
 	}
 
 	public Date getInicioProgramado() {
@@ -148,7 +139,6 @@ public class Visita {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((cliente == null) ? 0 : cliente.hashCode());
-		result = prime * result + ((domicilio == null) ? 0 : domicilio.hashCode());
 		result = prime * result + estado;
 		result = prime * result + ((factura == null) ? 0 : factura.hashCode());
 		result = prime * result + ((finProgramado == null) ? 0 : finProgramado.hashCode());
@@ -175,11 +165,6 @@ public class Visita {
 			if (other.cliente != null)
 				return false;
 		} else if (!cliente.equals(other.cliente))
-			return false;
-		if (domicilio == null) {
-			if (other.domicilio != null)
-				return false;
-		} else if (!domicilio.equals(other.domicilio))
 			return false;
 		if (estado != other.estado)
 			return false;

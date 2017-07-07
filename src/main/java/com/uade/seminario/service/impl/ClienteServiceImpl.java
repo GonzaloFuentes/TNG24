@@ -18,7 +18,7 @@ public class ClienteServiceImpl implements ClienteService {
 	
 	@Override
 	public List<Cliente> getClientes() {
-		return null;
+		return clienteDao.getClientes();
 	}
 
 	@Override

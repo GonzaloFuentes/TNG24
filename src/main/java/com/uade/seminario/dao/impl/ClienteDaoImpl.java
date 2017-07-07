@@ -2,6 +2,9 @@ package com.uade.seminario.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.uade.seminario.dao.ClienteDao;
@@ -15,32 +18,29 @@ public class ClienteDaoImpl extends GenericDaoHibernate<Cliente, Long> implement
 		super(Cliente.class);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Cliente> getClientes() {
-		return null;
+		List<Cliente> clientes = null;
+		try {
+			clientes = getSession().createCriteria(Cliente.class).add(Restrictions.eq("estado", "A"))
+					.addOrder(Order.asc("apellido")).list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return clientes;
 	}
 
 	@Override
 	public Cliente saveCliente(Cliente cliente) {
-
-	try
-	{
-		if (log.isDebugEnabled()) {
-			log.debug("cliente todo id: ");
+		try {
+			getSession().saveOrUpdate(cliente);
+			getSession().flush();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		
-		getSession().saveOrUpdate(cliente);
-		log.info("hizo el update: ");
-		// necessary to throw a DataIntegrityViolation and catch it in
-		// UserManager
-		getSession().flush();
-		log.info("hizo el flush: ");
-	} catch(Exception e)
-	{
-		e.printStackTrace();
-	}
 
-	return cliente;
-}
+		return cliente;
+	}
 
 }

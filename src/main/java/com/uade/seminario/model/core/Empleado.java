@@ -1,9 +1,31 @@
 package com.uade.seminario.model.core;
 
-public class Empleado extends Ente {
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+
+@Entity  
+@Table(name="ct_empleado")  
+@PrimaryKeyJoinColumn(name="id_ente")  
+public class Empleado extends Ente implements Serializable{
+
+	private static final long serialVersionUID = 1050321399673083419L;
+	
+	@Column(name="telefono") 
 	private String telefono;
+	
+	@Column(name="mail") 
 	private String mail;
-	private RollEmpleado Rol;
+	
+	@OneToOne
+	@JoinColumn(name="id_rollempleado")
+	private RolEmpleado Rol;
+	
 	public boolean cumplo(int id, String apellido, String nombre, String roll, String documento, char e) {
 		return false;
 	
@@ -20,10 +42,10 @@ public class Empleado extends Ente {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-	public RollEmpleado getRol() {
+	public RolEmpleado getRol() {
 		return Rol;
 	}
-	public void setRol(RollEmpleado rol) {
+	public void setRol(RolEmpleado rol) {
 		Rol = rol;
 	}
 	@Override

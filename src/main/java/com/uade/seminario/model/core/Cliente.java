@@ -1,7 +1,12 @@
 package com.uade.seminario.model.core;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -10,42 +15,44 @@ import com.uade.seminario.util.EstadoConstants;
 @Entity  
 @Table(name="ct_cliente")  
 @PrimaryKeyJoinColumn(name="id_ente")  
-public class Cliente extends Ente {
-	
+public class Cliente extends Ente implements Serializable {
+	private static final long serialVersionUID = -2011409847961846525L;
+
 	@Column(name="telefono")  
 	private String telefono;
 	
-	@Column(name="mail")  
+	@Column(name="mail", nullable = false, length = 40)  
 	private String mail;
 	
-//	@OneToOne(cascade = CascadeType.ALL)
-//  @JoinColumn(name = "id_domicilio")
-//	private Domicilio domicilio;
+	@Column(name="calle", nullable = false, length = 100)
+	private String calle;
+	
+	@Column(name="numero", nullable = false, length = 40)
+	private String numero;
+	
+	@Column(name="piso", nullable = false, length = 50)
+	private String piso;
+	
+	@Column(name="departamento", nullable = false, length = 50)
+	private String departamento;
+	
+	@Column(name="provincia", nullable = false, length = 40)
+	private String provincia;
+	
+	@Column(name="ciudad", nullable = false, length = 40)
+	private String ciudad;
+	
+	@Column(name="codigoPostal", nullable = false, length = 50)
+	private String codigoPostal;
+	
+//	public ViewCliente mostrate() {
+//	return null;
+//
+//}
 	
 	public boolean cumplo(int id, String nombre, String apellido, String documento, char e) {
 		return false;
 	}
-	
-//	public ViewCliente mostrate() {
-//		return null;
-//	
-//	}
-	
-	public void editate(String apellido, String nombre, String documento, String codDoc, String tel, String mail, int dom) {
-	}
-	
-	public void bajate() {
-		this.setEstado(EstadoConstants.BAJA);
-	}
-	
-	public void rehabilitate() {
-		this.setEstado(EstadoConstants.ALTA);
-	}
-	
-	public boolean sosCliente(int id) {
-		return false;
-	}
-	
 
 	public String getTelefono() {
 		return telefono;
@@ -63,51 +70,61 @@ public class Cliente extends Ente {
 		this.mail = mail;
 	}
 
-	
-//	public Domicilio getDomicilio() {
-//		return domicilio;
-//	}
-//
-//	public void setDomicilio(Domicilio domicilio) {
-//		this.domicilio = domicilio;
-//	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-//		result = prime * result + ((domicilio == null) ? 0 : domicilio.hashCode());
-		result = prime * result + ((mail == null) ? 0 : mail.hashCode());
-		result = prime * result + ((telefono == null) ? 0 : telefono.hashCode());
-		return result;
+	public String getCalle() {
+		return calle;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Cliente other = (Cliente) obj;
-//		if (domicilio == null) {
-//			if (other.domicilio != null)
-//				return false;
-//		} else if (!domicilio.equals(other.domicilio))
-//			return false;
-		if (mail == null) {
-			if (other.mail != null)
-				return false;
-		} else if (!mail.equals(other.mail))
-			return false;
-		if (telefono == null) {
-			if (other.telefono != null)
-				return false;
-		} else if (!telefono.equals(other.telefono))
-			return false;
-		return true;
+	public void setCalle(String calle) {
+		this.calle = calle;
 	}
-	
+
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public String getPiso() {
+		return piso;
+	}
+
+	public void setPiso(String piso) {
+		this.piso = piso;
+	}
+
+	public String getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(String departamento) {
+		this.departamento = departamento;
+	}
+
+	public String getProvincia() {
+		return provincia;
+	}
+
+	public void setProvincia(String provincia) {
+		this.provincia = provincia;
+	}
+
+	public String getCiudad() {
+		return ciudad;
+	}
+
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
+
+	public String getCodigoPostal() {
+		return codigoPostal;
+	}
+
+	public void setCodigoPostal(String codigoPostal) {
+		this.codigoPostal = codigoPostal;
+	}
+
 	
 }

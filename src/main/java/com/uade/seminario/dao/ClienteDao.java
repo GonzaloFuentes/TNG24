@@ -8,6 +8,7 @@ import com.uade.seminario.model.core.Cliente;
 
 public interface ClienteDao {
    
+    @Transactional
 	List<Cliente> getClientes();
     
     @Transactional
